@@ -1,0 +1,26 @@
+body {
+  color: #999;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 720px;
+  margin: 100px auto;
+}
+.hole {
+  width: 150px;
+  height: 150px;
+  margin: 0 15px 30px;
+  background: rgb(61, 61, 61);
+  border-radius: 50%;
+}
+
+.hole_has-goblin {
+  background-image: url(../img/goblin.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: black;
+}
