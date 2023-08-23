@@ -1,3 +1,5 @@
-import './css/style.css';
+import './css/board.css';
+
+import './css/count.css';
 
 import './js/app'
