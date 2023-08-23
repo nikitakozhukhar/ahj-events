@@ -1,5 +1,5 @@
-import StartGame from "./components/StartGame";
+import Game from "./components/Game";
 
-const gameStart = new StartGame();
+const startGame = new Game(1);
 
-gameStart.nextHole()
+startGame.startGame()

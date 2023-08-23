@@ -1,10 +1,10 @@
-export default class StartGame {
+export default class Game {
 	constructor(activeHole) {
-		activeHole = 1;
+		this.activeHole = activeHole;
 	}
 
 	getHole(index) {
-		document.getElementById(`${index}`)
+		return document.getElementById(`hole${index}`)
 	}
 
 	deactivateHole(index) {
@@ -15,13 +15,12 @@ export default class StartGame {
 		this.getHole(index).className = 'hole hole_has-goblin'
 	}
 
-	 nextHole() {
+	startGame() {
 		setTimeout(() => {
 			this.deactivateHole(this.activeHole);
-			activeHole = Math.floor(1 + Math.random() * 16);
+			this.activeHole = Math.floor(1 + Math.random() * 16);
 			this.activateHole(this.activeHole);
 			this.nextHole();
 		  }, 1000)
-	 } 
-
+	 }
 }
