@@ -6,8 +6,11 @@ const startGame = new Game(1);
 
 startGame.startGame();
 
-const conter = new Counter('.count-container');
+const counter = new Counter('.count-container');
 
-const container = conter.checkElement();
+// const container = counter.checkElement();
 
-console.log(container.children[1].classList)
+// console.log(counter.getKill());
+// console.log(counter.getMiss());
+// console.log(counter.getMiss());
+console.log(counter.logic());
