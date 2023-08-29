@@ -52,3 +52,13 @@ export default class Counter {
 
   
 }
+
+const board = document.querySelector('.board');
+const holes = board.querySelector('.hole');
+
+board.addEventListener('click', e => {
+  console.log(e.target)
+})
+// console.log(board);
+
+// console.log(holes)
