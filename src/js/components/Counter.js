@@ -14,10 +14,18 @@ export default class Counter {
   }
 
   getMiss() {
-    let missCount = document.querySelector('.miss').textContent++;
+    
+      let missTimeout = setInterval(() => {
+        document.querySelector('.miss').textContent++;
+        return missCount
+      }, 1000);
+      clearInterval(missTimeout);
+    
+    
+    // let missCount = document.querySelector('.miss').textContent++;
 
     // missCount += 1;
-    return missCount
+    // return missCount
   }
 
   logic() {
@@ -29,8 +37,11 @@ export default class Counter {
         if (goblin) {
           this.getKill();
           // checkWinner()
-        } else {
-          this.getMiss();
+        } 
+        if (!goblin) {
+          let missCount = document.querySelector('.miss').textContent++;
+          return missCount
+          // this.getMiss();
         }
         checkWinner()
         // debugger;
