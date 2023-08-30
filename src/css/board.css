@@ -2,7 +2,7 @@ body {
   color: #999;
   overflow: hidden;
   /* cursor: none; */
-  /* cursor: url('../img/cursour.png'); */
+  /* cursor: url('../img/cursor.png'); */
 }
 
 .board {
@@ -11,6 +11,7 @@ body {
   justify-content: space-around;
   width: 720px;
   margin: 50px auto;
+ 
 }
 .hole {
   width: 150px;
@@ -18,10 +19,11 @@ body {
   margin: 0 15px 30px;
   background: rgb(61, 61, 61);
   border-radius: 50%;
+  
 }
 
 .hole:hover {
-  
+  cursor: url(../img/cursor3.png) 1 1, auto;
 }
 
 .hole_has-goblin {
