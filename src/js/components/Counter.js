@@ -1,75 +1,47 @@
 export default class Counter {
-  constructor() {
-    // if (typeof elem === 'string') {
-    //   element = document.querySelector(element)
-    // }
-    // this.element = element;
+  constructor(){
   }
 
   getKill() {
-    // return checkElement()
-    let killCount = document.querySelector('.kill').textContent++;
-    // killCount += 1;
-    return killCount
+    return document.querySelector('.kill').textContent++;
   }
-
   getMiss() {
-    
-      let missTimeout = setInterval(() => {
-        document.querySelector('.miss').textContent++;
-        return missCount
-      }, 1000);
-      clearInterval(missTimeout);
-    
-    
-    // let missCount = document.querySelector('.miss').textContent++;
-
-    // missCount += 1;
-    // return missCount
+    let miss = setInterval(() => {
+      document.querySelector('.miss').textContent++
+    }, 1000);
+      // clearInterval(miss)
+    // return 
   }
 
   logic() {
-    const holes = document.querySelectorAll('.hole');
-    holes.forEach(hole => {
-      hole.addEventListener('click', e => {
-        const goblin = e.target.classList.contains('hole_has-goblin');
+    const board = document.querySelector('.board');
+    board.addEventListener('click', e => {
 
+      const goblin = e.target.classList.contains('hole_has-goblin');
         if (goblin) {
           this.getKill();
-          // checkWinner()
-        } 
-        if (!goblin) {
-          let missCount = document.querySelector('.miss').textContent++;
-          return missCount
-          // this.getMiss();
-        }
-        checkWinner()
-        // debugger;
-      })
-      
+        } else (
+          // setInterval(() => {
+          //   document.querySelector('.miss').textContent++
+          // }, 1000)
+         this.getMiss()
+        )
+      checkWinner()
     })
 
     let checkWinner = () => {
       const kill = document.querySelector('.kill').textContent;
       const miss = document.querySelector('.miss').textContent;
       if (kill == 5) {
-        alert('Player win')
+        alert('Player\' win');
+        document.querySelector('.kill').textContent = 0;
+        document.querySelector('.miss').textContent = 0;
       }
       if (miss == 5) {
-        alert('Goblin win')
+        alert('Goblin\'s win');
+        document.querySelector('.kill').textContent = 0;
+        document.querySelector('.miss').textContent = 0;
       }
     }
   }
-
-  
 }
-
-const board = document.querySelector('.board');
-const holes = board.querySelector('.hole');
-
-board.addEventListener('click', e => {
-  console.log(e.target)
-})
-// console.log(board);
-
-// console.log(holes)
