@@ -16,11 +16,11 @@ export default class Game {
 	}
 
 	startGame() {
-		setTimeout(() => {
-			this.deactivateHole(this.activeHole);
-			this.activeHole = Math.floor(1 + Math.random() * 16);
-			this.activateHole(this.activeHole);
-			this.startGame();
-		  }, 1000)
-	 }
+    setTimeout(() => {
+      this.deactivateHole(this.activeHole);
+      this.activeHole = Math.floor(1 + Math.random() * 16);
+      this.activateHole(this.activeHole);
+      }, 1000)
+   }
+
 }

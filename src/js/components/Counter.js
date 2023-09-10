@@ -1,5 +1,9 @@
+import Game from './Game';
+
+let game = new Game();
+
 export default class Counter {
-  constructor(){
+  constructor() {
   }
 
   getKill() {
@@ -9,39 +13,83 @@ export default class Counter {
     let miss = setInterval(() => {
       document.querySelector('.miss').textContent++
     }, 1000);
-      // clearInterval(miss)
-    // return 
   }
 
   logic() {
     const board = document.querySelector('.board');
-    board.addEventListener('click', e => {
+    let missCount = 0;
 
+    board.addEventListener('click', e => {
       const goblin = e.target.classList.contains('hole_has-goblin');
-        if (goblin) {
-          this.getKill();
-        } else (
-          // setInterval(() => {
-          //   document.querySelector('.miss').textContent++
-          // }, 1000)
-         this.getMiss()
-        )
-      checkWinner()
-    })
+      if (goblin) {
+        this.getKill();
+      } else {
+        missCount++;
+        this.getMiss();
+      }
+      checkWinner();
+    });
 
     let checkWinner = () => {
       const kill = document.querySelector('.kill').textContent;
-      const miss = document.querySelector('.miss').textContent;
       if (kill == 5) {
-        alert('Player\' win');
-        document.querySelector('.kill').textContent = 0;
-        document.querySelector('.miss').textContent = 0;
+        alert('Player wins');
+        this.resetCounts();
       }
-      if (miss == 5) {
-        alert('Goblin\'s win');
-        document.querySelector('.kill').textContent = 0;
-        document.querySelector('.miss').textContent = 0;
+
+      if (missCount == 5) {
+        alert('Goblins win');
+        this.resetCounts();
       }
-    }
+    };
+
+    // this.startGame();
+    game.startGame(); // Начните игру после инициализации обработчика событий.
+
+  }
+
+  resetCounts() {
+    document.querySelector('.kill').textContent = 0;
+    document.querySelector('.miss').textContent = 0;
+    missCount = 0;
   }
 }
+
+
+
+// logic() {
+  //   const board = document.querySelector('.board');
+  //   let missCount = 0;
+
+  //   board.addEventListener('click', e => {
+
+  //     const goblin = e.target.classList.contains('hole_has-goblin');
+  //     if (goblin) {
+  //       this.getKill();
+  //     } else {
+  //       missCount++;
+  //       this.getMiss();
+  //     }
+  //     checkWinner()
+  //   })
+
+  //   let checkWinner = () => {
+  //     const kill = document.querySelector('.kill').textContent;
+  //     if (kill == 5) {
+  //       alert('Player win');
+  //       this.resetCounts();
+  //     }
+  //     if (missCount == 5) {
+  //       alert('Goblins win');
+  //       this.resetCounts();
+  //     }
+  //   }
+
+    // game.startGame();
+    
+    // resetCounts() {
+//   document.querySelector('.kill').textContent = 0;
+//   document.querySelector('.miss').textContent = 0;
+//   missCount = 0;
+// }
+// }
