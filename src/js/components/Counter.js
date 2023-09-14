@@ -26,7 +26,7 @@ export default class Counter {
         checkWinner();
       } else {
         missCount++;
-          this.getMiss();
+        this.getMiss();
       }
       checkWinner();
     });
@@ -36,7 +36,6 @@ export default class Counter {
         alert('Player wins');
         this.resetCounts();
       }
-
       if (missCount == 5) {
         alert('Goblins win');
         this.resetCounts();
