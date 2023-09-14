@@ -1,6 +1,6 @@
 import Game from './Game';
 
-let game = new Game();
+let game = new Game(1);
 
 export default class Counter {
   constructor() {
@@ -10,7 +10,7 @@ export default class Counter {
     return document.querySelector('.kill').textContent++;
   }
   getMiss() {
-    let miss = setInterval(() => {
+    setInterval(() => {
       document.querySelector('.miss').textContent++
     }, 1000);
   }
@@ -23,13 +23,13 @@ export default class Counter {
       const goblin = e.target.classList.contains('hole_has-goblin');
       if (goblin) {
         this.getKill();
+        checkWinner();
       } else {
         missCount++;
-        this.getMiss();
+          this.getMiss();
       }
       checkWinner();
     });
-
     let checkWinner = () => {
       const kill = document.querySelector('.kill').textContent;
       if (kill == 5) {
@@ -43,8 +43,9 @@ export default class Counter {
       }
     };
 
-    // this.startGame();
-    game.startGame(); // Начните игру после инициализации обработчика событий.
+    setInterval(() => {
+      game.startGame();
+    }, 1000)
 
   }
 
@@ -54,42 +55,3 @@ export default class Counter {
     missCount = 0;
   }
 }
-
-
-
-// logic() {
-  //   const board = document.querySelector('.board');
-  //   let missCount = 0;
-
-  //   board.addEventListener('click', e => {
-
-  //     const goblin = e.target.classList.contains('hole_has-goblin');
-  //     if (goblin) {
-  //       this.getKill();
-  //     } else {
-  //       missCount++;
-  //       this.getMiss();
-  //     }
-  //     checkWinner()
-  //   })
-
-  //   let checkWinner = () => {
-  //     const kill = document.querySelector('.kill').textContent;
-  //     if (kill == 5) {
-  //       alert('Player win');
-  //       this.resetCounts();
-  //     }
-  //     if (missCount == 5) {
-  //       alert('Goblins win');
-  //       this.resetCounts();
-  //     }
-  //   }
-
-    // game.startGame();
-    
-    // resetCounts() {
-//   document.querySelector('.kill').textContent = 0;
-//   document.querySelector('.miss').textContent = 0;
-//   missCount = 0;
-// }
-// }
