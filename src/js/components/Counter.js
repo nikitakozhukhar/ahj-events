@@ -1,46 +1,41 @@
 import Game from './Game';
 
 let game = new Game(1);
+let miss = document.querySelector('.miss');
+let kill = document.querySelector('.kill');
 
 export default class Counter {
   constructor() {
   }
 
   getKill() {
-    return document.querySelector('.kill').textContent++;
+    return kill.textContent++;
   }
   getMiss() {
-    setInterval(() => {
-      document.querySelector('.miss').textContent++
-    }, 1000);
+    const hasGoblin = document.querySelector('hole_has-goblin');
+
+    if (!hasGoblin) {
+      miss.textContent++
+    } 
   }
 
   logic() {
     const board = document.querySelector('.board');
-    let missCount = 0;
+    
+    setInterval(() => {
+      this.getMiss();
+      this.checkWinner();
+    }, 1000);
 
     board.addEventListener('click', e => {
       const goblin = e.target.classList.contains('hole_has-goblin');
       if (goblin) {
         this.getKill();
-        checkWinner();
+        this.checkWinner();
       } else {
-        missCount++;
-        this.getMiss();
+        miss.textContent++
       }
-      checkWinner();
     });
-    let checkWinner = () => {
-      const kill = document.querySelector('.kill').textContent;
-      if (kill == 5) {
-        alert('Player wins');
-        this.resetCounts();
-      }
-      if (missCount == 5) {
-        alert('Goblins win');
-        this.resetCounts();
-      }
-    };
 
     setInterval(() => {
       game.startGame();
@@ -48,9 +43,19 @@ export default class Counter {
 
   }
 
+  checkWinner () {
+    if (kill.textContent == 5) {
+      alert('Player wins');
+      this.resetCounts();
+    }
+    if (miss.textContent == 5) {
+      alert('Goblins win');
+      this.resetCounts();
+    }
+  };
+
   resetCounts() {
-    document.querySelector('.kill').textContent = 0;
-    document.querySelector('.miss').textContent = 0;
-    missCount = 0;
+    kill.textContent = 0;
+    miss.textContent = 0;
   }
 }
