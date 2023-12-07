@@ -1,8 +1,8 @@
 import Game from './Game';
 
-let game = new Game(1);
-let miss = document.querySelector('.miss');
-let kill = document.querySelector('.kill');
+const game = new Game(1);
+const miss = document.querySelector('.miss');
+const kill = document.querySelector('.kill');
 
 export default class Counter {
   constructor() {
@@ -15,29 +15,24 @@ export default class Counter {
     return miss.textContent++
   }
 
+
   logic() {
     const board = document.querySelector('.board');
-    
-    setInterval(() => {
-      this.getMiss();
-      this.checkWinner();
-    }, 1000);
 
     board.addEventListener('click', e => {
       const goblin = e.target.classList.contains('hole_has-goblin');
       this.checkWinner();
+
       if (goblin) {
         this.getKill();
-        miss.textContent--;
       } else {
         this.getMiss();
-       }
+      }
     });
 
     setInterval(() => {
       game.changeHole();
     }, 1000)
-
   }
 
   checkWinner () {
@@ -45,7 +40,7 @@ export default class Counter {
       alert('Player wins');
       this.resetCounts();
     }
-    if (miss.textContent >= 5) {
+    if (miss.textContent == 5) {
       alert('Goblins win');
       this.resetCounts();
     }
