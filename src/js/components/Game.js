@@ -15,7 +15,7 @@ export default class Game {
 		this.getHole(index).className = 'hole hole_has-goblin'
 	}
 	
-	startGame() {
+	changeHole() {
 		this.deactivateHole(this.activeHole);
 		this.activeHole = Math.floor(1 + Math.random() * 16);
     	this.activateHole(this.activeHole);

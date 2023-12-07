@@ -12,11 +12,7 @@ export default class Counter {
     return kill.textContent++;
   }
   getMiss() {
-    const hasGoblin = document.querySelector('hole_has-goblin');
-
-    if (!hasGoblin) {
-      miss.textContent++
-    } 
+    return miss.textContent++
   }
 
   logic() {
@@ -29,16 +25,17 @@ export default class Counter {
 
     board.addEventListener('click', e => {
       const goblin = e.target.classList.contains('hole_has-goblin');
+      this.checkWinner();
       if (goblin) {
         this.getKill();
-        this.checkWinner();
+        miss.textContent--;
       } else {
-        miss.textContent++
-      }
+        this.getMiss();
+       }
     });
 
     setInterval(() => {
-      game.startGame();
+      game.changeHole();
     }, 1000)
 
   }
@@ -48,7 +45,7 @@ export default class Counter {
       alert('Player wins');
       this.resetCounts();
     }
-    if (miss.textContent == 5) {
+    if (miss.textContent >= 5) {
       alert('Goblins win');
       this.resetCounts();
     }
