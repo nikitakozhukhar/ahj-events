@@ -1,0 +1,1 @@
+import Game from"./components/Game";import Counter from"./components/Counter";var counter=new Counter(".count-container");counter.logic();
