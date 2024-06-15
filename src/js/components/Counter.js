@@ -6,6 +6,7 @@ const kill = document.querySelector('.kill');
 
 export default class Counter {
   constructor() {
+
   }
 
   getKill() {
@@ -23,6 +24,8 @@ export default class Counter {
       const goblin = e.target.classList.contains('hole_has-goblin');
       this.checkWinner();
 
+      this.hideGoblin('stop');
+
       if (goblin) {
         this.getKill();
       } else {
@@ -31,17 +34,29 @@ export default class Counter {
     });
 
     setInterval(() => {
+      this.checkWinner();
+      this.hideGoblin('start');
       game.changeHole();
     }, 1000)
   }
 
+  hideGoblin(command) {
+    const start = setTimeout(() => {
+      this.getMiss();
+    }, 1000)
+
+    if(command == 'stop') {
+      clearTimeout(start);
+    }
+  }
+
   checkWinner () {
     if (kill.textContent == 5) {
-      alert('Player wins');
+      // alert('Player wins');
       this.resetCounts();
     }
     if (miss.textContent == 5) {
-      alert('Goblins win');
+      // alert('Goblins win');
       this.resetCounts();
     }
   };

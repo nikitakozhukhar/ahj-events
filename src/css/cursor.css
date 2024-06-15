@@ -1,0 +1,18 @@
+.body {
+  cursor: none;
+}
+
+.board.active {
+  cursor: none;
+}
+
+.cursor-hummer {
+  position: absolute;
+  pointer-events: none;
+  width: 32px;
+  height: 32px;
+  background-image: url('../img/hammer-silhouette_59303.png');
+  background-size: cover;
+  transform-origin: center;
+  display: none;
+}

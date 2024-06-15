@@ -19,11 +19,6 @@ export default class Game {
 		this.deactivateHole(this.activeHole);
 		this.activeHole = Math.floor(1 + Math.random() * 16);
     	this.activateHole(this.activeHole);
-    // setTimeout(() => {
-    //   this.deactivateHole(this.activeHole);
-    //   this.activeHole = Math.floor(1 + Math.random() * 16);
-    //   this.activateHole(this.activeHole);
-    //   }, 1000)
    }
 
 }

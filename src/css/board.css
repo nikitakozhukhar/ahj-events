@@ -1,8 +1,7 @@
 body {
   color: #999;
   overflow: hidden;
-  /* cursor: none; */
-  /* cursor: url('../img/cursor.png'); */
+  
 }
 
 .board {
@@ -11,8 +10,8 @@ body {
   justify-content: space-around;
   width: 720px;
   margin: 50px auto;
- 
 }
+
 .hole {
   width: 150px;
   height: 150px;
@@ -22,12 +21,8 @@ body {
   
 }
 
-.hole:hover {
-  cursor: url(../img/cursor3.png) 1 1, auto;
-}
-
 .hole_has-goblin {
-  background-image: url(../img/goblin.png);
+  background-image: url('../img/goblin.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
