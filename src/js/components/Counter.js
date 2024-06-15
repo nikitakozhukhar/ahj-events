@@ -52,11 +52,11 @@ export default class Counter {
 
   checkWinner () {
     if (kill.textContent == 5) {
-      // alert('Player wins');
+      alert('Player wins');
       this.resetCounts();
     }
     if (miss.textContent == 5) {
-      // alert('Goblins win');
+      alert('Goblins win');
       this.resetCounts();
     }
   };
