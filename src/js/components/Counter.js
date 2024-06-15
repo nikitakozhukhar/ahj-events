@@ -5,7 +5,9 @@ const miss = document.querySelector('.miss');
 const kill = document.querySelector('.kill');
 
 export default class Counter {
+ 
   getKill() {
+    
     return kill.textContent++;
   }
 
@@ -47,11 +49,11 @@ export default class Counter {
   }
 
   checkWinner() {
-    if (kill.textContent === 5) {
+    if (kill.textContent === '5') {
       alert('Player wins');
       this.resetCounts();
     }
-    if (miss.textContent === 5) {
+    if (miss.textContent === '5') {
       alert('Goblins win');
       this.resetCounts();
     }
