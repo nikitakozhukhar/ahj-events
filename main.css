@@ -1,0 +1,67 @@
+body {
+  color: #999;
+  overflow: hidden;
+  
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 720px;
+  margin: 50px auto;
+}
+
+.hole {
+  width: 150px;
+  height: 150px;
+  margin: 0 15px 30px;
+  background: rgb(61, 61, 61);
+  border-radius: 50%;
+  
+}
+
+.hole_has-goblin {
+  background-image: url(2dbd01ce16c0fa83cb67.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: black;
+}
+
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+.count-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  font-size: 2em;
+  color: #000;
+}
+.kill-counter {
+  font-size: 1em;
+  color: #000;
+}
+.miss-counter {
+  font-size: 1em;
+  color: #000;
+}
+.body {
+  cursor: none;
+}
+
+.board.active {
+  cursor: none;
+}
+
+.cursor-hummer {
+  position: absolute;
+  pointer-events: none;
+  width: 32px;
+  height: 32px;
+  background-image: url(d7d2d1011a0626918e4b.png);
+  background-size: cover;
+  transform-origin: center;
+  display: none;
+}
